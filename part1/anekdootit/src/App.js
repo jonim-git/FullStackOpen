@@ -9,17 +9,18 @@ const Button = (props) => {
   )
 }
 
-const AnecdotesDisplay = ({ anecdote, votes, winnerVote, nextAnecdote, vote }) => {
+const AnecdotesDisplay = ({ anecdote, votes, winnerVotes, winnerVote, nextAnecdote, vote }) => {
 
   return (
     <div>
-      <h1>Random anecdote:</h1>
+      <h2>Anecdote of the day:</h2>
       {anecdote}
-      <p> votes: {votes} </p>
-      <Button handleClick={nextAnecdote} text={"Next random anecdote"} />
+      <p>has votes: {votes} </p>
       <Button handleClick={vote} text={"Vote for this anecdote"} />
+      <Button handleClick={nextAnecdote} text={"Next random anecdote"} />
       <h2>Winner anecdote</h2>
       {winnerVote}
+      <p>has votes: {winnerVotes}</p>
     </div>
   )
 }
@@ -51,7 +52,7 @@ const App = () => {
 
   return (
     <div>
-      <AnecdotesDisplay anecdote={anecdotes[selected]} votes={array[selected]} winnerVote={anecdotes[winnerVote]} nextAnecdote={nextAnecdote} vote={vote} />
+      <AnecdotesDisplay anecdote={anecdotes[selected]} votes={array[selected]} winnerVotes={array[winnerVote]} winnerVote={anecdotes[winnerVote]} nextAnecdote={nextAnecdote} vote={vote} />
     </div>
   )
 }
